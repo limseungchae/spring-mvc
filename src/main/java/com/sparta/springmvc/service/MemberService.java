@@ -2,7 +2,6 @@ package com.sparta.springmvc.service;
 
 import com.sparta.springmvc.domain.Member;
 import com.sparta.springmvc.repository.MemberRepository;
-import com.sparta.springmvc.repository.MemoryMemberRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,7 +9,17 @@ import java.util.Optional;
 public class MemberService {
 
     // MemberService에서 사용할 MemberRepository 인스턴스를 생성합니다.
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
+
+    /**
+     * MemberService 클래스의 생성자입니다.
+     *
+     * @param memberRepository MemberRepository 인스턴스입니다. 이 인스턴스를 통해 회원 관련 데이터를 처리합니다.
+     */
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
+
 
     /**
      * 회원 가입
