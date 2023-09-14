@@ -1,8 +1,11 @@
 package com.sparta.springmvc.repository;
 
 import com.sparta.springmvc.domain.Member;
+import org.springframework.stereotype.Repository;
+
 import java.util.*;
 
+@Repository
 public class MemoryMemberRepository implements MemberRepository {
 
     // 회원 정보를 저장할 맵

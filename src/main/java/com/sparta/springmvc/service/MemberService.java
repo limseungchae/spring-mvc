@@ -2,10 +2,13 @@ package com.sparta.springmvc.service;
 
 import com.sparta.springmvc.domain.Member;
 import com.sparta.springmvc.repository.MemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class MemberService {
 
     // MemberService에서 사용할 MemberRepository 인스턴스를 생성합니다.
@@ -16,6 +19,8 @@ public class MemberService {
      *
      * @param memberRepository MemberRepository 인스턴스입니다. 이 인스턴스를 통해 회원 관련 데이터를 처리합니다.
      */
+    // 생성자를 통한 의존성 주입
+    @Autowired
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
