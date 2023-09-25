@@ -4,8 +4,11 @@ import com.sparta.springmvc.domain.Member;
 import com.sparta.springmvc.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 
 @Controller
 public class MemberController {
@@ -40,6 +43,20 @@ public class MemberController {
 
         // 처리가 완료되면 홈 페이지로 리다이렉트합니다.
         return "redirect:/";
+    }
+
+    @GetMapping("/members")
+    public String list(Model model) {
+        // memberService를 사용하여 회원 목록을 조회합니다.
+        List<Member> members = memberService.findMembers();
+
+        // 조회된 회원 목록을 "members"라는 이름으로 Model에 추가합니다.
+        // Model은 데이터를 뷰로 전달하는 데 사용됩니다.
+        model.addAttribute("members", members);
+
+        // "members/memberList"라는 뷰 템플릿을 반환합니다.
+        // 이것은 클라이언트에게 보여줄 화면을 나타내며, 뷰 리졸버에 의해 해석됩니다.
+        return "members/memberList";
     }
 
 }
