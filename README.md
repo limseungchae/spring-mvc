@@ -11,6 +11,7 @@
 프로젝트를 실행하기 위해 다음 소프트웨어가 설치되어 있어야 합니다:
 
 - Java Development Kit (JDK) 17
+- [AdoptOpenJDK 홈페이지](https://adoptium.net/temurin/releases/)
 - 원하는 통합 개발 환경 (IDE)
 
 ### 설치 및 실행
